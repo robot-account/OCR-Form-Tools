@@ -25,8 +25,8 @@ WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/run.sh .
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
-RUN chmod +x /usr/src/app/run.sh 
+RUN chmod +x ./run.sh 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/nginx.conf
 EXPOSE 8080
-ENTRYPOINT [ "/usr/src/app/run.sh" ]
+ENTRYPOINT [ "./run.sh" ]
