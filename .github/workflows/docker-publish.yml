@@ -1,9 +1,5 @@
 name: Docker
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
 
 on:
 #   schedule:
@@ -20,7 +16,7 @@ env:
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
   # IMAGE_NAME: ${{ github.repository }}
-  IMAGE_NAME: botaccount/azure-cognitive-services-custom-form-labeltool:${{ github.sha }}
+  IMAGE_NAME: botaccount/azure-cognitive-services-custom-form-labeltool
 
 jobs:
   build:
