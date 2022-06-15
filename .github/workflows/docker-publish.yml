@@ -32,11 +32,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Build
-        run: -|
-          npm install -g yarn
-          yarn install
-          yarn build
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
