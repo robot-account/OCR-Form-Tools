@@ -20,7 +20,7 @@ RUN yarn build
 
 # Stage 2
 # Use Nginx to serve files
-FROM nginx-unprivileged:1.22
+FROM nginxinc/nginx-unprivileged:1.22
 WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/run.sh .
