@@ -20,12 +20,12 @@ RUN yarn build
 
 # Stage 2
 # Use Nginx to serve files
-FROM nginx:1.18.0-alpine
+FROM nginx-unprivileged:1.22
 WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/run.sh .
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/nginx.conf
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT [ "./run.sh" ]
