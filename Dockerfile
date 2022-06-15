@@ -14,6 +14,7 @@ COPY yarn.lock ./
 RUN yarn install
 
 COPY . .
+RUN chmod +x ./run.sh 
 
 # Build the app for production
 RUN yarn build
@@ -25,7 +26,6 @@ WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/run.sh .
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
-RUN chmod +x ./run.sh 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/nginx.conf
 EXPOSE 8080
